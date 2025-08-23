@@ -33,20 +33,22 @@ packages in any order.
 
 ## Installation
 
-This package is currently only available here, but submission to CRAN is
-planned soon.
-
-The typical github installation will work.
+The package can be installed from CRAN:
 
 ``` r
-devtools::install_github("jprybylski/xpose.xtras")
+install.packages("xpose.xtras")
+```
+
+The typical github installation will also work.
+
+``` r
+remotes::install_github("jprybylski/xpose.xtras")
 ```
 
 ## Preview
 
-The grandparent package, `xpose4`, has a nice collection of figures and
-documentation that is referred to as a
-“[bestiary](https://xpose.sourceforge.net/bestiarium_v1.0.pdf)”. The
+The grandparent package, `xpose4`, used to have a nice collection of
+figures and documentation that is referred to as a “bestiarium”. The
 documentation site for this package serves as a complete bestiary, but
 see the uncommented examples below as a sort of menagerie. There is no
 assumption that these examples are self-explanatory, but hopefully users
@@ -61,7 +63,6 @@ described <- xpdb_x %>%
   set_var_units(AGE="yrs")  %>%
   set_var_levels(SEX=lvl_sex(), MED1 = lvl_bin())
 eta_vs_contcov(described,etavar=ETA1, quiet=TRUE)
-#> `geom_smooth()` using formula = 'y ~ x'
 #> `geom_smooth()` using formula = 'y ~ x'
 ```
 
@@ -91,7 +92,6 @@ pkpd_m3 %>%
   set_dv_probs(1, 1~LIKE, .dv_var = BLQ) %>%
   set_var_levels(1, BLQ = lvl_bin()) %>%
   catdv_vs_dvprobs(quiet=TRUE)
-#> `geom_smooth()` using method = 'gam' and formula = 'y ~ s(x, bs = "cs")'
 #> `geom_smooth()` using method = 'gam' and formula = 'y ~ s(x, bs = "cs")'
 ```
 

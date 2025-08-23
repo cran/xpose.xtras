@@ -1,8 +1,8 @@
 Package: xpose.xtras
 Title: Extra Functionality for the 'xpose' Package
-Version: 0.0.2
+Version: 0.0.3
 Authors@R: 
-    person("John", "Prybylski", , "john.prybylski@pfizer.com", role = c("aut", "cre"),
+    person("John", "Prybylski", , "jprybylski@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0001-5802-0539"))
 Description: Adding some at-present missing functionality, or functions 
     unlikely to be added to the base 'xpose' package.  This includes some 
@@ -21,14 +21,15 @@ Imports: assertthat, cli, colorspace, conflicted, dplyr (>= 1.1.2),
 Suggests: DiagrammeR, grDevices, knitr, rmarkdown, testthat (>= 3.0.0),
         vdiffr
 Config/testthat/edition: 3
-Depends: R (>= 2.10)
+Depends: R (>= 3.5)
 LazyData: true
 VignetteBuilder: knitr
 URL: https://jprybylski.github.io/xpose.xtras/,
         https://github.com/jprybylski/xpose.xtras
 NeedsCompilation: no
-Packaged: 2024-11-20 19:03:45 UTC; PRYBYJ
-Author: John Prybylski [aut, cre] (<https://orcid.org/0000-0001-5802-0539>)
-Maintainer: John Prybylski <john.prybylski@pfizer.com>
+Packaged: 2025-08-22 23:58:50 UTC; jpryb
+Author: John Prybylski [aut, cre, cph] (ORCID:
+    <https://orcid.org/0000-0001-5802-0539>)
+Maintainer: John Prybylski <jprybylski@gmail.com>
 Repository: CRAN
-Date/Publication: 2024-11-21 17:20:02 UTC
+Date/Publication: 2025-08-23 07:30:02 UTC
