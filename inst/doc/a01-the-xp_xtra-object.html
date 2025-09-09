@@ -364,7 +364,7 @@ The extended version of <code>xpose_data</code> has the class
 <span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="co">#&gt;    + special: &lt;none&gt; </span></span>
 <span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="co">#&gt;  - gg_theme: theme_readable </span></span>
 <span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a><span class="co">#&gt;  - xp_theme: theme_xp_default </span></span>
-<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a><span class="co">#&gt;  - Options: dir = data, quiet = FALSE, manual_import = NULL</span></span>
+<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a><span class="co">#&gt;  - Options: dir = data, quiet = FALSE, manual_import = NULL, use_labelunit = TRUE, square_bracket = FALSE</span></span>
 <span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a>xpdb_converted</span>
 <span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a><span class="co">#&gt; ── ~ xp_xtras object </span></span>
@@ -378,7 +378,7 @@ The extended version of <code>xpose_data</code> has the class
 <span id="cb1-26"><a href="#cb1-26" tabindex="-1"></a><span class="co">#&gt;    + special: &lt;none&gt; </span></span>
 <span id="cb1-27"><a href="#cb1-27" tabindex="-1"></a><span class="co">#&gt;  - gg_theme: theme_readable </span></span>
 <span id="cb1-28"><a href="#cb1-28" tabindex="-1"></a><span class="co">#&gt;  - xp_theme: xp_xtra_theme new_x$xp_theme </span></span>
-<span id="cb1-29"><a href="#cb1-29" tabindex="-1"></a><span class="co">#&gt;  - Options: dir = data, quiet = FALSE, manual_import = NULL, cvtype = exact</span></span></code></pre></div>
+<span id="cb1-29"><a href="#cb1-29" tabindex="-1"></a><span class="co">#&gt;  - Options: dir = data, quiet = FALSE, manual_import = NULL, use_labelunit = TRUE, square_bracket = FALSE, cvtype = exact</span></span></code></pre></div>
 <p>As shown, there are some minor changes to the output for
 <code>print()</code> to help confirm if an object is the extended
 version. However, this is implemented merely as an S3 class, so all
@@ -448,17 +448,18 @@ these can be confirmed using <code>list_vars()</code> in
 <span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="co">#&gt;  - Subject identifier (id)               : ID</span></span>
 <span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="co">#&gt;  - Dependent variable (dv)               : DV</span></span>
 <span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="co">#&gt;  - Independent variable (idv)            : TIME</span></span>
-<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="co">#&gt;  - Dose amount (amt)                     : AMT</span></span>
-<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co">#&gt;  - Event identifier (evid)               : EVID</span></span>
-<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="co">#&gt;  - Model typical predictions (pred)      : PRED</span></span>
-<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="co">#&gt;  - Model individual predictions (ipred)  : IPRED</span></span>
-<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="co">#&gt;  - Model parameter (param)               : KA, CL, V, ALAG1</span></span>
-<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a><span class="co">#&gt;  - Eta (eta)                             : ETA1, ETA2, ETA3</span></span>
-<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a><span class="co">#&gt;  - Residuals (res)                       : CWRES, IWRES, RES, WRES</span></span>
-<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a><span class="co">#&gt;  - Categorical covariates (catcov)       : SEX [0], MED1 (&#39;Digoxin&#39;) [0], MED2 [0]</span></span>
-<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a><span class="co">#&gt;  - Continuous covariates (contcov)       : CLCR, AGE (&#39;Age&#39;, yrs), WT</span></span>
-<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a><span class="co">#&gt;  - Compartment amounts (a)               : A1, A2</span></span>
-<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a><span class="co">#&gt;  - Not attributed (na)                   : DOSE, SS, II, TAD, CPRED</span></span></code></pre></div>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="co">#&gt;  - Time after dose (tad) (tad)           : TAD</span></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co">#&gt;  - Dose amount (amt)                     : AMT</span></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="co">#&gt;  - Event identifier (evid)               : EVID</span></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="co">#&gt;  - Model typical predictions (pred)      : PRED</span></span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="co">#&gt;  - Model individual predictions (ipred)  : IPRED</span></span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a><span class="co">#&gt;  - Model parameter (param)               : KA, CL, V, ALAG1</span></span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a><span class="co">#&gt;  - Eta (eta)                             : ETA1, ETA2, ETA3</span></span>
+<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a><span class="co">#&gt;  - Residuals (res)                       : CWRES, IWRES, RES, WRES</span></span>
+<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a><span class="co">#&gt;  - Categorical covariates (catcov)       : SEX [0], MED1 (&#39;Digoxin&#39;) [0], MED2 [0]</span></span>
+<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a><span class="co">#&gt;  - Continuous covariates (contcov)       : CLCR, AGE (&#39;Age&#39;, yrs), WT</span></span>
+<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a><span class="co">#&gt;  - Compartment amounts (a)               : A1, A2</span></span>
+<span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a><span class="co">#&gt;  - Not attributed (na)                   : DOSE, SS, II, CPRED</span></span></code></pre></div>
 <p>Levels can also be added to any variable, but can be especially
 useful for categorical covariates (<code>catcov</code>) and categorical
 DVs (type <code>catdv</code>, added by this package). The documentation
@@ -472,17 +473,18 @@ checked.</p>
 <span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co">#&gt;  - Subject identifier (id)               : ID</span></span>
 <span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="co">#&gt;  - Dependent variable (dv)               : DV</span></span>
 <span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co">#&gt;  - Independent variable (idv)            : TIME</span></span>
-<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">#&gt;  - Dose amount (amt)                     : AMT</span></span>
-<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co">#&gt;  - Event identifier (evid)               : EVID</span></span>
-<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co">#&gt;  - Model typical predictions (pred)      : PRED</span></span>
-<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="co">#&gt;  - Model individual predictions (ipred)  : IPRED</span></span>
-<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="co">#&gt;  - Model parameter (param)               : KA, CL, V, ALAG1</span></span>
-<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="co">#&gt;  - Eta (eta)                             : ETA1, ETA2, ETA3</span></span>
-<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a><span class="co">#&gt;  - Residuals (res)                       : CWRES, IWRES, RES, WRES</span></span>
-<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a><span class="co">#&gt;  - Categorical covariates (catcov)       : SEX [2], MED1 (&#39;Digoxin&#39;) [2], MED2 [0]</span></span>
-<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a><span class="co">#&gt;  - Continuous covariates (contcov)       : CLCR, AGE (&#39;Age&#39;, yrs), WT</span></span>
-<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a><span class="co">#&gt;  - Compartment amounts (a)               : A1, A2</span></span>
-<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a><span class="co">#&gt;  - Not attributed (na)                   : DOSE, SS, II, TAD, CPRED</span></span></code></pre></div>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">#&gt;  - Time after dose (tad) (tad)           : TAD</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co">#&gt;  - Dose amount (amt)                     : AMT</span></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co">#&gt;  - Event identifier (evid)               : EVID</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="co">#&gt;  - Model typical predictions (pred)      : PRED</span></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="co">#&gt;  - Model individual predictions (ipred)  : IPRED</span></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="co">#&gt;  - Model parameter (param)               : KA, CL, V, ALAG1</span></span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a><span class="co">#&gt;  - Eta (eta)                             : ETA1, ETA2, ETA3</span></span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a><span class="co">#&gt;  - Residuals (res)                       : CWRES, IWRES, RES, WRES</span></span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a><span class="co">#&gt;  - Categorical covariates (catcov)       : SEX [2], MED1 (&#39;Digoxin&#39;) [2], MED2 [0]</span></span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a><span class="co">#&gt;  - Continuous covariates (contcov)       : CLCR, AGE (&#39;Age&#39;, yrs), WT</span></span>
+<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a><span class="co">#&gt;  - Compartment amounts (a)               : A1, A2</span></span>
+<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a><span class="co">#&gt;  - Not attributed (na)                   : DOSE, SS, II, CPRED</span></span></code></pre></div>
 <p>Labels, units and levels also appear in new plotting functions. There
 are some more complex functions where this renaming has not been
 implemented, but the plan is to have it be universal eventually.</p>
