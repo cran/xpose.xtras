@@ -1,6 +1,6 @@
 Package: xpose.xtras
 Title: Extra Functionality for the 'xpose' Package
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: 
     person("John", "Prybylski", , "jprybylski@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0001-5802-0539"))
@@ -12,7 +12,7 @@ Description: Adding some at-present missing functionality, or functions
     'xpose' objects, and diagnostics for likelihood-based models.
 License: MIT + file LICENSE
 Encoding: UTF-8
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 Imports: checkmate, cli, colorspace, conflicted, dplyr (>= 1.1.2),
         forcats (>= 1.0.0), GGally, ggplot2 (>= 3.4.2), glue,
         lifecycle, magrittr, pmxcv, purrr (>= 1.0.1), readr (>= 2.1.4),
@@ -30,9 +30,9 @@ URL: https://jprybylski.github.io/xpose.xtras/,
 Language: en-US
 Config/Needs/website: rmarkdown
 NeedsCompilation: no
-Packaged: 2025-09-08 22:41:14 UTC; jpryb
+Packaged: 2025-11-30 21:51:00 UTC; jprybylski
 Author: John Prybylski [aut, cre, cph] (ORCID:
     <https://orcid.org/0000-0001-5802-0539>)
 Maintainer: John Prybylski <jprybylski@gmail.com>
 Repository: CRAN
-Date/Publication: 2025-09-09 06:50:02 UTC
+Date/Publication: 2025-11-30 23:00:02 UTC
