@@ -1,7 +1,7 @@
-d7bc377d48fa21784ee461b807a1bc96 *DESCRIPTION
+35180a32ad075cb526d95699ace2088d *DESCRIPTION
 66856000689b8a8294495f7d4e6ee719 *LICENSE
 5603f579518781e62a2af6c565decb1b *NAMESPACE
-922e1a333ae55a834fc99db9683de971 *NEWS.md
+9da317d97a8dbbc46b41add33a46945f *NEWS.md
 73b569a69e552afe1d95989efc332b70 *R/asserts.R
 b255437a407477b7f914499b3ef41ad0 *R/categorical.R
 fc09c053eca14eac3d52a4827c6a35f1 *R/colinearity.R
@@ -11,7 +11,7 @@ fc09c053eca14eac3d52a4827c6a35f1 *R/colinearity.R
 28fef1b49eeab3b861ec5bd1db3c638a *R/diag_constants.R
 08f5fc460729677a6fc19d17100cd44f *R/fixes.R
 9f6606e6b45febaafb7a291d6f02ec14 *R/modavg_xpdb.R
-78fb3bc7b6d0b2f0c7feed047a4af5c8 *R/nlmixr2.R
+75b7a30576e722bfa9ffc1e29e9c7386 *R/nlmixr2.R
 c94a2204f7d558b16fcf9b1a2a02b4e3 *R/tte.R
 b56ff2b193ecba52f9ec7f3b10cca008 *R/utils-pipe.R
 c5847a0385e4f70bf03d40d1405bb543 *R/utils-reexports.R
@@ -56,10 +56,10 @@ d14ac0e6c1d239073b845ec85f0a1d56 *inst/doc/a01-the-xp_xtra-object.Rmd
 10cc271554cc98c2a6047fdafaf24049 *inst/doc/a01-the-xp_xtra-object.html
 189b080c221981f8f751057abd82d594 *inst/doc/a02-xpose-sets.R
 063a5b4843dc4d8fa3623baf50ba45f2 *inst/doc/a02-xpose-sets.Rmd
-e5f14496bdd62aedd8db3f646d0e1d7e *inst/doc/a02-xpose-sets.html
+15ad1ffc15634f30bf3df88adcd9efd1 *inst/doc/a02-xpose-sets.html
 15c063eab5e7a8ddf39574da53c9bca2 *inst/doc/a03-useful_plots.R
 a4b195070d521079ba44d7961938a36c *inst/doc/a03-useful_plots.Rmd
-3fcd8c1f987fbcd7798a2ef6e401a6da *inst/doc/a03-useful_plots.html
+4d6eeb5a02b9f424d9c58059cee1da4c *inst/doc/a03-useful_plots.html
 85f9b468da3941e2913d47f0ad6eaf65 *inst/figures/logo.png
 05f6a8baa96aa035c312d67502da54c2 *inst/pheno_nm/clean_tree.tar.gz
 7beff83d627c2154be6e20651f3794f9 *inst/pheno_nm/data.csv
@@ -214,7 +214,7 @@ b7521dbbb57350914929f5a8e4c87bee *tests/testthat/test-categorical.R
 df22c14409d50bc3ec87eb31aadd67d5 *tests/testthat/test-diag_constants.R
 d12c4c0326f132aa5d4ad0c2a91e7e38 *tests/testthat/test-fixes.R
 5509b65565ea80c4ab5b5ee039078bc6 *tests/testthat/test-modavg_xpdb.R
-5176df32404fc48203008a70d09efbc1 *tests/testthat/test-nlmixr2.R
+14624c0052ef7787eaa5d99049e0aece *tests/testthat/test-nlmixr2.R
 75a7c574a46b62fe2b90edbf5a73a7e6 *tests/testthat/test-utils.R
 09adde9ec429e7a87b60e539a0ef4345 *tests/testthat/test-xp_xtras.R
 f91a085d84ab1efa83d44516d1d6861a *tests/testthat/test-xplot_boxplot.R
