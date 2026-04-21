@@ -14,7 +14,7 @@ library(xpose.xtras)
 xpose_set(pheno_base, pheno_final, pheno_saem)
 xpose_set(base=pheno_base, reparam=pheno_final, reparam_saem=pheno_saem)
 
-## ----pheno_set_diagram--------------------------------------------------------
+## ----pheno_set_diagram, eval=requireNamespace("DiagrammeR", quietly=TRUE)-----
 diagram_lineage(pheno_set) %>%
   DiagrammeR::render_graph(layout="tree")
 
@@ -27,15 +27,15 @@ phrun8 <- pheno_set$run8$xpdb
 phrun9 <- pheno_set$run9$xpdb
 pheno_stem <- xpose_set(phrun3,phrun5,phrun6, .as_ordered = TRUE)
 pheno_stem
-diagram_lineage(pheno_stem) %>%
-  DiagrammeR::render_graph(layout="tree")
+if (requireNamespace("DiagrammeR", quietly=TRUE))
+  diagram_lineage(pheno_stem) %>% DiagrammeR::render_graph(layout="tree")
 pheno_branch <- xpose_set(phrun6,phrun7,phrun8,phrun9, .relationships = c(phrun7+phrun8+phrun9~phrun6))
 pheno_branch
-diagram_lineage(pheno_branch) %>%
-  DiagrammeR::render_graph(layout="tree")
+if (requireNamespace("DiagrammeR", quietly=TRUE))
+  diagram_lineage(pheno_branch) %>% DiagrammeR::render_graph(layout="tree")
 
 ## ----pheno_concat-------------------------------------------------------------
-pheno_tree <- pheno_stem %>% 
+pheno_tree <- pheno_stem %>%
   # drop phrun6 from stem
   select(-phrun6) %>%
   c(
@@ -43,8 +43,8 @@ pheno_tree <- pheno_stem %>%
     .relationships = c(phrun6~phrun5)
   )
 pheno_tree
-diagram_lineage(pheno_tree) %>%
-  DiagrammeR::render_graph(layout="tree")
+if (requireNamespace("DiagrammeR", quietly=TRUE))
+  diagram_lineage(pheno_tree) %>% DiagrammeR::render_graph(layout="tree")
 
 ## ----diff---------------------------------------------------------------------
 diff(pheno_set)
