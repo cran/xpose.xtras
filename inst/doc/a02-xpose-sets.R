@@ -70,6 +70,10 @@ tibble(
 diff(pheno_set, run10,run9)
 xset_lineage(pheno_set, run10,run9)
 
+## ----fitstats-----------------------------------------------------------------
+AIC(pheno_set)
+BIC(pheno_set, run10, run9)
+
 ## ----shark, fig.width=unit(7,"in"), fig.height=unit(5,"in")-------------------
 pheno_set %>%
   focus_qapply(backfill_iofv) %>%

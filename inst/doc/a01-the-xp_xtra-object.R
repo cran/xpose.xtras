@@ -78,3 +78,33 @@ pheno_final %>% get_prop("descr")
 ## ----describer----------------------------------------------------------------
 pheno_final %>% desc_from_comments() %>% get_prop("descr")
 
+## ----process_preset-----------------------------------------------------------
+add_process_preset(
+  ~ .x %>% as_xpdb_x() %>% set_var_types(na = any_of(c("SEX", "MED1", "MED2")), .problem = 1),
+  name = "drop_covariates"
+)
+print_process_preset()
+
+# before: SEX/MED1/MED2 are categorical covariates
+list_vars(xpdb_ex_pk, .problem = 1)
+
+# after: they've been reassigned to "na" (not attributed) by the preset
+xpdb_ex_pk %>%
+  process_preset("drop_covariates") %>%
+  list_vars(.problem = 1)
+
+## ----process_preset_amend-----------------------------------------------------
+amend_process_preset(
+  "drop_covariates",
+  ~ .x %>% as_xpdb_x() %>% set_var_types(na = any_of(c("SEX", "MED1")), .problem = 1)
+)
+remove_process_preset("drop_covariates")
+
+## ----process_preset_persist, eval = FALSE-------------------------------------
+# # only meaningful in an actual interactive session
+# add_process_preset(
+#   ~ .x %>% as_xpdb_x() %>% set_var_types(na = any_of(paste0("ETA", 5:9))),
+#   name = "drop_higher_etas",
+#   persist = TRUE
+# )
+

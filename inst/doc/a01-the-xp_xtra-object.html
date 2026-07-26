@@ -506,17 +506,16 @@ extended to output coefficient of variation percent (CV%) for <span class="math 
 relevant.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">get_prm</span>(pheno_final) <span class="sc">%&gt;%</span></span>
 <span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(fixed,m,n))</span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="co">#&gt; Returning parameter estimates from $prob no.1, subprob no.1, method foce</span></span>
-<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="co">#&gt; # A tibble: 7 × 9</span></span>
-<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="co">#&gt;   type  name       label       value         se      rse diagonal      cv    shk</span></span>
-<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;     &lt;num:4&gt;    &lt;num:4&gt;  &lt;num:4&gt; &lt;lgl&gt;    &lt;num:4&gt; &lt;num:&gt;</span></span>
-<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="co">#&gt; 1 the   THETA1     &quot;CLpkg&quot;  0.004813  0.0002365  0.04914 NA         NA      NA  </span></span>
-<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="co">#&gt; 2 the   THETA2     &quot;Vpkg&quot;   0.9964    0.02642    0.02652 NA         NA      NA  </span></span>
-<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="co">#&gt; 3 the   THETA3     &quot;RUVADD&quot; 2.784     0.2513     0.09027 NA         NA      NA  </span></span>
-<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a><span class="co">#&gt; 4 ome   OMEGA(1,1) &quot;IIVCL&quot;  0.2009    0.05108    0.2543  TRUE       20.30   20.1</span></span>
-<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a><span class="co">#&gt; 5 ome   OMEGA(2,1) &quot;&quot;       0.7236    0.2654     0.3668  FALSE      NA      NA  </span></span>
-<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a><span class="co">#&gt; 6 ome   OMEGA(2,2) &quot;IIVV&quot;   0.1576    0.02614    0.1659  TRUE       15.86   11.6</span></span>
-<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a><span class="co">#&gt; 7 sig   SIGMA(1,1) &quot;&quot;       1        NA         NA       TRUE       NA      19.6</span></span></code></pre></div>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="co">#&gt; # A tibble: 7 × 9</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="co">#&gt;   type  name       label       value         se      rse diagonal      cv    shk</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;     &lt;num:4&gt;    &lt;num:4&gt;  &lt;num:4&gt; &lt;lgl&gt;    &lt;num:4&gt; &lt;num:&gt;</span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="co">#&gt; 1 the   THETA1     &quot;CLpkg&quot;  0.004813  0.0002365  0.04914 NA         NA      NA  </span></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="co">#&gt; 2 the   THETA2     &quot;Vpkg&quot;   0.9964    0.02642    0.02652 NA         NA      NA  </span></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="co">#&gt; 3 the   THETA3     &quot;RUVADD&quot; 2.784     0.2513     0.09027 NA         NA      NA  </span></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="co">#&gt; 4 ome   OMEGA(1,1) &quot;IIVCL&quot;  0.2009    0.05108    0.2543  TRUE       20.30   20.1</span></span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a><span class="co">#&gt; 5 ome   OMEGA(2,1) &quot;&quot;       0.7236    0.2654     0.3668  FALSE      NA      NA  </span></span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a><span class="co">#&gt; 6 ome   OMEGA(2,2) &quot;IIVV&quot;   0.1576    0.02614    0.1659  TRUE       15.86   11.6</span></span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a><span class="co">#&gt; 7 sig   SIGMA(1,1) &quot;&quot;       1        NA         NA       TRUE       NA      19.6</span></span></code></pre></div>
 <p>There are a few options to change CV% where an opinion might conflict
 with the default. One such option is to add a description of how the
 parameter is used, which results in an exact CV% determined through
@@ -528,19 +527,18 @@ described as follows.</p>
 <span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>   <span class="fu">add_prm_association</span>(CLpkg<span class="sc">~</span><span class="fu">logit</span>(IIVCL),Vpkg<span class="sc">~</span><span class="fu">logit</span>(IIVV)) <span class="sc">%&gt;%</span></span>
 <span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>   <span class="fu">get_prm</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(fixed,m,n))</span>
-<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a><span class="co">#&gt; Returning parameter estimates from $prob no.1, subprob no.1, method foce</span></span>
-<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a><span class="co">#&gt; # A tibble: 7 × 9</span></span>
-<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a><span class="co">#&gt;   type  name       label       value         se      rse diagonal       cv   shk</span></span>
-<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;     &lt;num:4&gt;    &lt;num:4&gt;  &lt;num:4&gt; &lt;lgl&gt;     &lt;num:4&gt; &lt;num&gt;</span></span>
-<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a><span class="co">#&gt; 1 the   THETA1     &quot;CLpkg&quot;  0.004813  0.0002365  0.04914 NA       NA        NA  </span></span>
-<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a><span class="co">#&gt; 2 the   THETA2     &quot;Vpkg&quot;   0.9964    0.02642    0.02652 NA       NA        NA  </span></span>
-<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a><span class="co">#&gt; 3 the   THETA3     &quot;RUVADD&quot; 2.784     0.2513     0.09027 NA       NA        NA  </span></span>
-<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a><span class="co">#&gt; 4 ome   OMEGA(1,1) &quot;IIVCL&quot;  0.2009    0.05108    0.2543  TRUE     20.19     20.1</span></span>
-<span id="cb8-13"><a href="#cb8-13" tabindex="-1"></a><span class="co">#&gt; 5 ome   OMEGA(2,1) &quot;&quot;       0.7236    0.2654     0.3668  FALSE    NA        NA  </span></span>
-<span id="cb8-14"><a href="#cb8-14" tabindex="-1"></a><span class="co">#&gt; 6 ome   OMEGA(2,2) &quot;IIVV&quot;   0.1576    0.02614    0.1659  TRUE      0.05778  11.6</span></span>
-<span id="cb8-15"><a href="#cb8-15" tabindex="-1"></a><span class="co">#&gt; 7 sig   SIGMA(1,1) &quot;&quot;       1        NA         NA       TRUE     NA        19.6</span></span>
-<span id="cb8-16"><a href="#cb8-16" tabindex="-1"></a><span class="co">#&gt; # Parameter table includes the following associations: CLpkg~logit(IIVCL) and</span></span>
-<span id="cb8-17"><a href="#cb8-17" tabindex="-1"></a><span class="co">#&gt; Vpkg~logit(IIVV)</span></span></code></pre></div>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a><span class="co">#&gt; # A tibble: 7 × 9</span></span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a><span class="co">#&gt;   type  name       label       value         se      rse diagonal       cv   shk</span></span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;     &lt;num:4&gt;    &lt;num:4&gt;  &lt;num:4&gt; &lt;lgl&gt;     &lt;num:4&gt; &lt;num&gt;</span></span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a><span class="co">#&gt; 1 the   THETA1     &quot;CLpkg&quot;  0.004813  0.0002365  0.04914 NA       NA        NA  </span></span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a><span class="co">#&gt; 2 the   THETA2     &quot;Vpkg&quot;   0.9964    0.02642    0.02652 NA       NA        NA  </span></span>
+<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a><span class="co">#&gt; 3 the   THETA3     &quot;RUVADD&quot; 2.784     0.2513     0.09027 NA       NA        NA  </span></span>
+<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a><span class="co">#&gt; 4 ome   OMEGA(1,1) &quot;IIVCL&quot;  0.2009    0.05108    0.2543  TRUE     20.19     20.1</span></span>
+<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a><span class="co">#&gt; 5 ome   OMEGA(2,1) &quot;&quot;       0.7236    0.2654     0.3668  FALSE    NA        NA  </span></span>
+<span id="cb8-13"><a href="#cb8-13" tabindex="-1"></a><span class="co">#&gt; 6 ome   OMEGA(2,2) &quot;IIVV&quot;   0.1576    0.02614    0.1659  TRUE      0.05778  11.6</span></span>
+<span id="cb8-14"><a href="#cb8-14" tabindex="-1"></a><span class="co">#&gt; 7 sig   SIGMA(1,1) &quot;&quot;       1        NA         NA       TRUE     NA        19.6</span></span>
+<span id="cb8-15"><a href="#cb8-15" tabindex="-1"></a><span class="co">#&gt; # Parameter table includes the following associations: CLpkg~logit(IIVCL) and</span></span>
+<span id="cb8-16"><a href="#cb8-16" tabindex="-1"></a><span class="co">#&gt; Vpkg~logit(IIVV)</span></span></code></pre></div>
 <p>There is a fair amount of complexity in the <code>get_prm()</code>
 extensions, including ability to change parameter value while also
 changing standard error and relevant variance-covariance (in position
@@ -606,6 +604,96 @@ individual objective functions. Currently, those can be added using
 <code>backfill_iofv()</code>, which is most often used in the context of
 <code>xpose_set</code> objects. Theoretically more backfill functions
 can be made available.</p>
+<div id="process-presets" class="section level3">
+<h3>Process presets</h3>
+<p>Converting a plain <code>xpose_data</code> object into a
+well-annotated <code>xp_xtras</code> one is often the same handful of
+steps repeated for every model in a project – convert, drop unused
+<code>ETA</code>s, assign labels/levels, and so on. A process preset
+bundles that pipeline up under a name, so it can be replayed with
+<code>process_preset()</code> instead of retyped.</p>
+<p>A preset is either a one-sided formula (using <code>.x</code> for the
+incoming <code>xpdb</code>, as in a <code>purrr</code>-style lambda) or
+a plain function.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">add_process_preset</span>(</span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>  <span class="sc">~</span> .x <span class="sc">%&gt;%</span> <span class="fu">as_xpdb_x</span>() <span class="sc">%&gt;%</span> <span class="fu">set_var_types</span>(<span class="at">na =</span> <span class="fu">any_of</span>(<span class="fu">c</span>(<span class="st">&quot;SEX&quot;</span>, <span class="st">&quot;MED1&quot;</span>, <span class="st">&quot;MED2&quot;</span>)), <span class="at">.problem =</span> <span class="dv">1</span>),</span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a>  <span class="at">name =</span> <span class="st">&quot;drop_covariates&quot;</span></span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a>)</span>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a><span class="co">#&gt; Added `process_preset()`(&quot;drop_covariates&quot;)</span></span>
+<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a><span class="fu">print_process_preset</span>()</span>
+<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a><span class="co">#&gt; • &quot;drop_covariates&quot;: `~.x %&gt;% as_xpdb_x() %&gt;% set_var_types(na =</span></span>
+<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a><span class="co">#&gt;   any_of(c(&quot;SEX&quot;, &quot;MED1&quot;, &quot;MED2&quot;)), .problem = 1)`</span></span>
+<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a></span>
+<span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a><span class="co"># before: SEX/MED1/MED2 are categorical covariates</span></span>
+<span id="cb13-11"><a href="#cb13-11" tabindex="-1"></a><span class="fu">list_vars</span>(xpdb_ex_pk, <span class="at">.problem =</span> <span class="dv">1</span>)</span>
+<span id="cb13-12"><a href="#cb13-12" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb13-13"><a href="#cb13-13" tabindex="-1"></a><span class="co">#&gt; List of available variables for problem no. 1 </span></span>
+<span id="cb13-14"><a href="#cb13-14" tabindex="-1"></a><span class="co">#&gt;  - Subject identifier (id)               : ID</span></span>
+<span id="cb13-15"><a href="#cb13-15" tabindex="-1"></a><span class="co">#&gt;  - Dependent variable (dv)               : DV</span></span>
+<span id="cb13-16"><a href="#cb13-16" tabindex="-1"></a><span class="co">#&gt;  - Independent variable (idv)            : TIME</span></span>
+<span id="cb13-17"><a href="#cb13-17" tabindex="-1"></a><span class="co">#&gt;  - Dose amount (amt)                     : AMT</span></span>
+<span id="cb13-18"><a href="#cb13-18" tabindex="-1"></a><span class="co">#&gt;  - Event identifier (evid)               : EVID</span></span>
+<span id="cb13-19"><a href="#cb13-19" tabindex="-1"></a><span class="co">#&gt;  - Model typical predictions (pred)      : PRED</span></span>
+<span id="cb13-20"><a href="#cb13-20" tabindex="-1"></a><span class="co">#&gt;  - Model individual predictions (ipred)  : IPRED</span></span>
+<span id="cb13-21"><a href="#cb13-21" tabindex="-1"></a><span class="co">#&gt;  - Model parameter (param)               : KA, CL, V, ALAG1</span></span>
+<span id="cb13-22"><a href="#cb13-22" tabindex="-1"></a><span class="co">#&gt;  - Eta (eta)                             : ETA1, ETA2, ETA3</span></span>
+<span id="cb13-23"><a href="#cb13-23" tabindex="-1"></a><span class="co">#&gt;  - Residuals (res)                       : CWRES, IWRES, RES, WRES</span></span>
+<span id="cb13-24"><a href="#cb13-24" tabindex="-1"></a><span class="co">#&gt;  - Categorical covariates (catcov)       : SEX, MED1, MED2</span></span>
+<span id="cb13-25"><a href="#cb13-25" tabindex="-1"></a><span class="co">#&gt;  - Continuous covariates (contcov)       : CLCR, AGE, WT</span></span>
+<span id="cb13-26"><a href="#cb13-26" tabindex="-1"></a><span class="co">#&gt;  - Compartment amounts (a)               : A1, A2</span></span>
+<span id="cb13-27"><a href="#cb13-27" tabindex="-1"></a><span class="co">#&gt;  - Not attributed (na)                   : DOSE, SS, II, TAD, CPRED</span></span>
+<span id="cb13-28"><a href="#cb13-28" tabindex="-1"></a></span>
+<span id="cb13-29"><a href="#cb13-29" tabindex="-1"></a><span class="co"># after: they&#39;ve been reassigned to &quot;na&quot; (not attributed) by the preset</span></span>
+<span id="cb13-30"><a href="#cb13-30" tabindex="-1"></a>xpdb_ex_pk <span class="sc">%&gt;%</span></span>
+<span id="cb13-31"><a href="#cb13-31" tabindex="-1"></a>  <span class="fu">process_preset</span>(<span class="st">&quot;drop_covariates&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-32"><a href="#cb13-32" tabindex="-1"></a>  <span class="fu">list_vars</span>(<span class="at">.problem =</span> <span class="dv">1</span>)</span>
+<span id="cb13-33"><a href="#cb13-33" tabindex="-1"></a><span class="co">#&gt; List of available variables for problem no. 1</span></span>
+<span id="cb13-34"><a href="#cb13-34" tabindex="-1"></a><span class="co">#&gt;  - Subject identifier (id)               : ID</span></span>
+<span id="cb13-35"><a href="#cb13-35" tabindex="-1"></a><span class="co">#&gt;  - Dependent variable (dv)               : DV</span></span>
+<span id="cb13-36"><a href="#cb13-36" tabindex="-1"></a><span class="co">#&gt;  - Independent variable (idv)            : TIME</span></span>
+<span id="cb13-37"><a href="#cb13-37" tabindex="-1"></a><span class="co">#&gt;  - Dose amount (amt)                     : AMT</span></span>
+<span id="cb13-38"><a href="#cb13-38" tabindex="-1"></a><span class="co">#&gt;  - Event identifier (evid)               : EVID</span></span>
+<span id="cb13-39"><a href="#cb13-39" tabindex="-1"></a><span class="co">#&gt;  - Model typical predictions (pred)      : PRED</span></span>
+<span id="cb13-40"><a href="#cb13-40" tabindex="-1"></a><span class="co">#&gt;  - Model individual predictions (ipred)  : IPRED</span></span>
+<span id="cb13-41"><a href="#cb13-41" tabindex="-1"></a><span class="co">#&gt;  - Model parameter (param)               : KA, CL, V, ALAG1</span></span>
+<span id="cb13-42"><a href="#cb13-42" tabindex="-1"></a><span class="co">#&gt;  - Eta (eta)                             : ETA1, ETA2, ETA3</span></span>
+<span id="cb13-43"><a href="#cb13-43" tabindex="-1"></a><span class="co">#&gt;  - Residuals (res)                       : CWRES, IWRES, RES, WRES</span></span>
+<span id="cb13-44"><a href="#cb13-44" tabindex="-1"></a><span class="co">#&gt;  - Continuous covariates (contcov)       : CLCR, AGE, WT</span></span>
+<span id="cb13-45"><a href="#cb13-45" tabindex="-1"></a><span class="co">#&gt;  - Compartment amounts (a)               : A1, A2</span></span>
+<span id="cb13-46"><a href="#cb13-46" tabindex="-1"></a><span class="co">#&gt;  - Not attributed (na)                   : SEX, MED1, MED2, DOSE, SS, II, TAD, CPRED</span></span></code></pre></div>
+<p><code>amend_process_preset()</code> replaces an existing preset’s
+definition in place (handy for iterating on one without losing its
+name), and <code>remove_process_preset()</code> deletes it.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="fu">amend_process_preset</span>(</span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>  <span class="st">&quot;drop_covariates&quot;</span>,</span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>  <span class="sc">~</span> .x <span class="sc">%&gt;%</span> <span class="fu">as_xpdb_x</span>() <span class="sc">%&gt;%</span> <span class="fu">set_var_types</span>(<span class="at">na =</span> <span class="fu">any_of</span>(<span class="fu">c</span>(<span class="st">&quot;SEX&quot;</span>, <span class="st">&quot;MED1&quot;</span>)), <span class="at">.problem =</span> <span class="dv">1</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>)</span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a><span class="co">#&gt; Added `process_preset()`(&quot;drop_covariates&quot;)</span></span>
+<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a><span class="fu">remove_process_preset</span>(<span class="st">&quot;drop_covariates&quot;</span>)</span>
+<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a><span class="co">#&gt; Removed `process_preset()`(&quot;drop_covariates&quot;)</span></span></code></pre></div>
+<p>By default, presets only last for the current session. Passing
+<code>persist = TRUE</code> (to
+<code>add_process_preset()</code>/<code>amend_process_preset()</code>/<code>remove_process_preset()</code>,
+or via a direct call to <code>persist_process_presets()</code>)
+additionally writes the current set of presets out to a
+<code>.Rprofile</code>, so they’re recreated automatically in future
+sessions. Per CRAN policy, a package must never write to files outside a
+temp directory without the user’s explicit, interactive consent – so
+persisting always requires an actual interactive session (it’s a no-op
+under <code>R CMD check</code>, <code>testthat</code>, or a vignette
+build like this one) and always asks for confirmation before writing,
+unless <code>ask = FALSE</code> is passed by the already-interactive
+caller. The target defaults to a <strong>project</strong>-scoped
+<code>.Rprofile</code> (in the current working directory, affecting only
+R sessions started there); <code>profile = &quot;user&quot;</code> targets the
+user-level profile instead.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="co"># only meaningful in an actual interactive session</span></span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a><span class="fu">add_process_preset</span>(</span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a>  <span class="sc">~</span> .x <span class="sc">%&gt;%</span> <span class="fu">as_xpdb_x</span>() <span class="sc">%&gt;%</span> <span class="fu">set_var_types</span>(<span class="at">na =</span> <span class="fu">any_of</span>(<span class="fu">paste0</span>(<span class="st">&quot;ETA&quot;</span>, <span class="dv">5</span><span class="sc">:</span><span class="dv">9</span>))),</span>
+<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a>  <span class="at">name =</span> <span class="st">&quot;drop_higher_etas&quot;</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a>  <span class="at">persist =</span> <span class="cn">TRUE</span></span>
+<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a>)</span></code></pre></div>
+</div>
 </div>
 
 

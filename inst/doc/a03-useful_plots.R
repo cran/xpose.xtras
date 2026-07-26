@@ -47,6 +47,22 @@ vismo_xpdb %>%
 described_pkpd_m3 %>%
   roc_plot(quiet=TRUE, group="ID", type="pt")
 
+## ----catdv_ipred, fig.width=unit(7,"in"), fig.height=unit(5,"in")-------------
+described_pkpd_m3 %>%
+  catdv_vs_ipred(bins = 5, quiet=TRUE)
+
+## ----catdv_occ, fig.width=unit(7,"in"), fig.height=unit(5,"in")---------------
+vismo_occ <- vismo_xpdb %>%
+  xpose::mutate(OCC = ceiling((TIME + 1) / 24), .problem = 1) %>%
+  set_var_types(.problem = 1, occ = OCC) %>%
+  set_var_levels(.problem = 1, OCC = lvl_inord(paste("Day", 1:12)))
+vismo_occ %>%
+  catdv_vs_occ(quiet=TRUE)
+
+## ----cormat, fig.width=unit(6,"in"), fig.height=unit(5,"in")------------------
+xpdb_x %>%
+  cormat(quiet=TRUE)
+
 ## ----waterfall, fig.width=unit(7,"in"), fig.height=unit(5,"in")---------------
 pheno_set %>%
   eta_waterfall(run3,run6, quiet=TRUE)
