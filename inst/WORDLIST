@@ -29,6 +29,7 @@ LHS's
 Laveille
 Metrum
 NONMEM
+NONMEM's
 OFV
 ORCID
 Pharmacodyn
@@ -108,8 +109,10 @@ ie
 incrementing
 interindividual
 irep
+katex
 labelled
 labeller
+lifecycle
 magrittr
 magrittr's
 mammillary
@@ -154,6 +157,7 @@ uncommented
 unconfigured
 unfocusing
 ungroup
+unlists
 updatable
 upsert
 vismodegib
